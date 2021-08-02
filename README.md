@@ -83,11 +83,6 @@ Below is the list of features that are used to customized this block and block c
 ```
   save({ attributes }) {...}
 ```
-<br>
-<br>
-<br>
-<br>
-
 
 ## Screenshots
 
