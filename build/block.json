@@ -1,0 +1,63 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "uv/feature-highlight",
+  "version": "1.0.0",
+  "title": "Feature Highlight",
+  "category": "design",
+  "icon": "performance",
+  "description": "A high-performance, accessible block demonstrating structured data and modern API usage.",
+  "keywords": [
+    "Custom",
+    "Performance",
+    "Accessible"
+  ],
+  "attributes": {
+    "headline": {
+      "type": "string",
+      "source": "html",
+      "selector": "h2"
+    },
+    "mainText": {
+      "type": "string",
+      "source": "html",
+      "selector": "p"
+    },
+    "backgroundImage": {
+      "type": "number"
+    },
+    "backgroundImageUrl": {
+      "type": "string"
+    },
+    "foregroundImage": {
+      "type": "number"
+    },
+    "foregroundImageAlt": {
+      "type": "string",
+      "default": ""
+    },
+    "foregroundImageUrl": {
+      "type": "string"
+    }
+  },
+  "supports": {
+    "html": false,
+    "anchor": true,
+    "colors": {
+      "gradients": true,
+      "link": true
+    },
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "typography": {
+      "fontSize": true,
+      "lineHeight": true
+    }
+  },
+  "textdomain": "gutenberg-custom-block",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index-editor.css",
+  "style": "file:./style-index.css"
+}
