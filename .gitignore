@@ -1,1 +1,15 @@
+# Node dependencies
+node_modules/
+npm-debug.log
+package-lock.json.swp
 
+# macOS system files
+.DS_Store
+
+# Editor directories and files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
