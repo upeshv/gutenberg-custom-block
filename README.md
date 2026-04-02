@@ -59,7 +59,8 @@ npm install
 npm run start
 
 # Compile for production
-npm run build```
+npm run build
+```
 
 <br>
 <br>
