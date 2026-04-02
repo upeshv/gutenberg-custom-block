@@ -1,1 +1,17 @@
-
+{
+  "name": "gutenberg-custom-block",
+  "version": "1.1.0",
+  "description": "A structured, accessible Gutenberg block demonstrating modern WordPress standards and performance optimization.",
+  "author": "Upesh Vishwakarma",
+  "license": "GPL-2.0-or-later",
+  "main": "build/index.js",
+  "scripts": {
+    "start": "wp-scripts start",
+    "build": "wp-scripts build",
+    "lint:js": "wp-scripts lint-js",
+    "lint:style": "wp-scripts lint-style"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^27.0.0"
+  }
+}
