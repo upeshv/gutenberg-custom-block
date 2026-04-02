@@ -1,1 +1,36 @@
+/**
+ * Editor-Only Styles
+ * * This file is enqueued only in the Gutenberg editor. 
+ * Use this to style WordPress UI components (like placeholders) 
+ * so they fit seamlessly into your CSS Grid layout.
+ */
 
+/* WordPress automatically adds a wrapper with the block name class */
+.wp-block-uv-feature-highlight {
+	
+	/* Make the background placeholder look intentional */
+	& > .components-placeholder {
+		min-height: 400px;
+		background-color: #f0f0f0;
+		border: 2px dashed #ccc;
+	}
+
+	.uv-custom-hero-block {
+		
+		/* Ensure the foreground image placeholder matches the final image height */
+		.uv-image-section {
+			.components-placeholder {
+				min-height: 300px;
+				border-radius: 8px;
+				width: 100%;
+			}
+		}
+
+		outline: 1px dashed transparent;
+		transition: outline 0.2s ease;
+
+		&:hover {
+			outline-color: rgba(0, 0, 0, 0.1);
+		}
+	}
+}
