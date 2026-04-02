@@ -1,1 +1,61 @@
+/**
+ * Shared Styles (Frontend & Editor)
+ * * This file contains the core structural layout for the block.
+ * Have used CSS Grid for a modern, responsive side-by-side layout.
+ */
 
+.uv-custom-hero-block {
+	/* Ensure the background image covers the whole area with nice padding */
+	padding: 4rem 2rem;
+	position: relative;
+	overflow: hidden;
+
+	/* The inner container keeps content centered and readable on large screens */
+	.uv-block-container {
+		max-width: 1200px;
+		margin: 0 auto;
+		
+		/* Mobile-first: Stack them vertically by default */
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 2rem;
+		align-items: center;
+
+		/* Desktop: Place them side-by-side (50/50 split) */
+		@media (min-width: 768px) {
+			grid-template-columns: 1fr 1fr;
+			gap: 4rem;
+		}
+	}
+
+	/* Text Column */
+	.uv-content-section {
+		.uv-headline {
+			margin-top: 0;
+			margin-bottom: 1rem;
+			font-weight: bold;
+		}
+		
+		.uv-main-text {
+			margin-bottom: 0;
+			line-height: 1.6;
+		}
+	}
+
+	/* Image Column */
+	.uv-image-section {
+		/* Reset default browser margins on figures */
+		.uv-foreground-figure {
+			margin: 0;
+		}
+
+		.uv-foreground-img,
+		.uv-foreground-preview {
+			width: 100%;
+			height: auto;
+			display: block;
+			border-radius: 8px; 
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle depth */
+		}
+	}
+}
