@@ -1,113 +1,50 @@
-# Gutenberg Custom Hero Block
+# Custom Hero Block (Feature Highlight)
 
-Custom blocks consist of four fields, Main Title, Description, Background Image, and Foreground Image.
+Hey there! 👋 This is a custom Gutenberg block I built to demonstrate modern WordPress development practices. 
 
-One of the main features of all the custom blocks is that they are reusable and easy to access on any page with just a few clicks from the backend.
+My goal with this project wasn't just to make something that looks good on the live website, but to build a component that provides a native, intuitive experience for the content editors using the WordPress backend.
 
-Have also created a custom block category under which I have listed this Hero Block.
+## 🛠️ How I built this (and why)
 
-Below is the list of features that are used to customized this block and block category.
+I moved away from legacy PHP block registration and used the modern `@wordpress/scripts` workflow. Here are the core features I focused on:
 
-* Custom Block Category
-* Custom Hero Block
-* Dependency Files
-* Bult-in attributes
-* Custom attributes
-* Built-in Edit functions
-* Built-in Save functions
+* **Modern Block API (v3):** I used `block.json` as the single source of truth for registering the block. It keeps the codebase clean and lets me use WordPress Core's native theme supports (like spacing and typography) instead of writing unnecessary custom CSS.
+* **Editor UX First:** There's nothing worse than adding a block and just seeing a blank white box. I used native `<MediaPlaceholder>` components to guide users to upload their images, and RichText fields so they get that true WYSIWYG editing experience.
+* **Built-in Accessibility (A11y):** Accessibility shouldn't be an afterthought. I added a custom sidebar panel using `InspectorControls` specifically so editors can easily add `alt` text to the foreground image for screen readers.
+* **Semantic Frontend:** The `save.js` file outputs clean, semantic HTML (`<section>`, `<figure>`, `<h2>`, `<p>`) to keep the DOM clean and SEO-friendly.
+* **Responsive CSS Grid:** Instead of relying on old float or flexbox hacks, I used a mobile-first CSS Grid approach. It handles the 50/50 desktop split effortlessly and stacks perfectly on mobile devices.
 
-<br>
-<br>
+## 🚀 Want to test it out?
 
-**Custom Block Category Filter**
-```
-  upeshv_customblocks_category()
-```
+You don't need to run a build process to test this out. I've included the compiled `build` folder in the repo so you can plug and play:
 
-**Custom Hero Block**
-```
-  upeshv_hero_blocks()
-```
+1. Download this repository as a `.zip` file.
+2. Upload and extract it into your local WordPress `wp-content/plugins/` folder.
+3. Activate the plugin from your WordPress dashboard.
+4. **Important:** Open any page/post, click the `+` (Block Inserter), and search for **"Feature Highlight"** to add the block.
 
-**Dependency Files**
-```
-  const { registerBlockType } = wp.blocks;
-  const { RichText, MediaUpload, PlainText } = wp.editor;
-  const { Button } = wp.components;
-  const { __, _x, _n, _nx } = wp.i18n;
-```
+## 📦 What's under the hood?
 
-**Bult-in attributes**
-```
-  title: __('Hero', 'upeshv'),
-  description: __('Block to generate a custom Hero banner', 'upeshv'),
-  icon: 'id',
-  cateogry: 'custom-blocks',
-```
+The block handles these core attributes, saving the text directly into the HTML to keep it searchable in the database:
+* `headline` & `mainText`
+* `backgroundImage` (ID and URL)
+* `foregroundImage` (ID, URL, and Alt text)
 
-**Custom attributes**
-```
-  attributes: {
+## 📸 Interface Previews
 
-    headline : {
-      ....
-    },
-    mainText : {
-      ...
-    },
-    backgroundImage : {
-      ...
-    },
-    backgroundImageUrl : {
-      ...
-    },
-    foregroundImage : {
-      ...
-    },
-    foregroundImageAlt : {
-      ...
-    },
-    foregroundImageUrl : {
-      ...
-    },
+**1. The Backend Editor Experience**
+![Editor Screenshot](https://github.com/upeshv/gutenberg-custom-block/blob/master/demo-images/backend.png?raw=true)
 
-  },
-```
+**2. The Frontend Result**
+![Frontend Screenshot](https://github.com/upeshv/gutenberg-custom-block/blob/master/demo-images/frontend.png?raw=true)
 
-**Built-in Edit functions**
-```
-  edit({ attributes, className, setAttributes }) {...}
-```
+## 🔒 Compatibility and Security
 
-**Built-in Save functions**
-```
-  save({ attributes }) {...}
-```
-
-## Screenshots
-
-Below are the Screenshot for demo purpose.
-
-1. Backend Screenshot.
-
-  ![Screenshot](https://github.com/upeshv/gutenberg-custom-block/blob/master/demo-images/backend.png?raw=true)
-
-2. Frontend Screenshot.
-
-  ![Screenshot](https://github.com/upeshv/gutenberg-custom-block/blob/master/demo-images/frontend.png?raw=true)
-
-
-## Note: 
-I haven't spend much time in styling the backend fields, since this was not the part of this task requirements.
-
-
-## Compatibility and security
-
-* Have followed the defined [WordPress coding standards](https://make.wordpress.org/core/handbook/best-practices/coding-standards/)
-* All the Data is been Sanitized, Escaped, and Validated.
-* The features is compatible with WordPress version 5.0 and latest and PHP versions 5.6.0 and latest.
-* The plugin is translation-ready.
-* WCAG 2.0 Compatible
+I take code quality and site security seriously. This project reflects that through:
+* **Coding Standards:** Strictly follows [WordPress Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/) for both PHP and JavaScript (ES6+). I utilize `@wordpress/scripts` for automated linting to ensure consistent, enterprise-grade code quality.
+* **Data Integrity:** All user input is managed via the Block API, ensuring data is properly sanitized, escaped, and validated before rendering.
+* **Version Support:** Optimized for **WordPress 6.0+** and **PHP 7.4+** to utilize the latest block editor features and performance improvements.
+* **Global Ready:** The plugin is completely translation-ready, utilizing the `@wordpress/i18n
 
 
 <br>
