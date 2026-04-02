@@ -41,11 +41,25 @@ The block handles these core attributes, saving the text directly into the HTML 
 ## 🔒 Compatibility and Security
 
 I take code quality and site security seriously. This project reflects that through:
-* **Coding Standards:** Strictly follows [WordPress Coding Standards](https://developer.wordpress.org/coding-standards/wordpress-coding-standards/) for both PHP and JavaScript (ES6+). I utilize `@wordpress/scripts` for automated linting to ensure consistent, enterprise-grade code quality.
+* **Coding Standards:** Strictly follows [WordPress Coding Standards](https://make.wordpress.org/core/handbook/best-practices/coding-standards/) for both PHP and JavaScript (ES6+). I utilize `@wordpress/scripts` for automated linting to ensure consistent, enterprise-grade code quality.
 * **Data Integrity:** All user input is managed via the Block API, ensuring data is properly sanitized, escaped, and validated before rendering.
 * **Version Support:** Optimized for **WordPress 6.0+** and **PHP 7.4+** to utilize the latest block editor features and performance improvements.
-* **Global Ready:** The plugin is completely translation-ready, utilizing the `@wordpress/i18n
+* **Global Ready:** The plugin is completely translation-ready, utilizing the `@wordpress/i18n` package and a strict text-domain.
+* **A11y Compliant:** Engineered for **WCAG 2.1 AA** compatibility, featuring dedicated controls for `alt` text management to ensure the web stays accessible.
 
+## 💻 Local Development
+
+If you want to pull it down and tinker with the React/SCSS source files:
+
+```bash
+# Install the required packages
+npm install
+
+# Watch for changes while coding
+npm run start
+
+# Compile for production
+npm run build
 
 <br>
 <br>
