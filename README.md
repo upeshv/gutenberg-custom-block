@@ -1,4 +1,4 @@
-# Custom Hero Block (Feature Highlight)
+# Gutenberg Custom Block Component (Feature Highlight)
 
 Hey there! 👋 This is a custom Gutenberg block I built to demonstrate modern WordPress development practices. 
 
@@ -13,6 +13,15 @@ I moved away from legacy PHP block registration and used the modern `@wordpress/
 * **Built-in Accessibility (A11y):** Accessibility shouldn't be an afterthought. I added a custom sidebar panel using `InspectorControls` specifically so editors can easily add `alt` text to the foreground image for screen readers.
 * **Semantic Frontend:** The `save.js` file outputs clean, semantic HTML (`<section>`, `<figure>`, `<h2>`, `<p>`) to keep the DOM clean and SEO-friendly.
 * **Responsive CSS Grid:** Instead of relying on old float or flexbox hacks, I used a mobile-first CSS Grid approach. It handles the 50/50 desktop split effortlessly and stacks perfectly on mobile devices.
+
+## 💡 Engineering Decisions & Trade-offs
+
+**Static vs. Dynamic Rendering**
+I opted for a static rendering approach for this block. By saving the markup directly to the database via the save function, we maximize frontend performance and leverage edge-caching layers. This approach eliminates unnecessary PHP processing on the frontend, a strategy I frequently employed at current company to handle high-concurrency traffic.
+**Attribute Management**
+Rather than relying on post-meta for every field, I utilized block attributes. This ensures the block remains self-contained, portable, and easily consumable by "Headless" frontends or decoupled architectures via the REST API.
+**Standards Compliance**
+The codebase is audited against WordPress Coding Standards (WPCS) and ESLint. This commitment to standardized technical processes ensures that the code is maintainable for large, distributed engineering teams.
 
 ## 🚀 Want to test it out?
 
