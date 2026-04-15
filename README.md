@@ -16,11 +16,11 @@ I moved away from legacy PHP block registration and used the modern `@wordpress/
 
 ## 💡 Engineering Decisions & Trade-offs
 
-**Static vs. Dynamic Rendering**
-I opted for a static rendering approach for this block. By saving the markup directly to the database via the save function, we maximize frontend performance and leverage edge-caching layers. This approach eliminates unnecessary PHP processing on the frontend, a strategy I frequently employed at current company to handle high-concurrency traffic.
-**Attribute Management**
+### **Static vs. Dynamic Rendering** 
+I opted for a **static rendering** approach for this block. By saving the markup directly to the database via the save function, we maximize frontend performance and leverage edge-caching layers. This approach eliminates unnecessary PHP processing on the frontend, a strategy I frequently employed at current company to handle high-concurrency traffic.
+### **Attribute Management  & Decoupled Design** 
 Rather than relying on post-meta for every field, I utilized block attributes. This ensures the block remains self-contained, portable, and easily consumable by "Headless" frontends or decoupled architectures via the REST API.
-**Standards Compliance**
+### **Enterprise Standards Compliance** 
 The codebase is audited against WordPress Coding Standards (WPCS) and ESLint. This commitment to standardized technical processes ensures that the code is maintainable for large, distributed engineering teams.
 
 ## 🚀 Want to test it out?
